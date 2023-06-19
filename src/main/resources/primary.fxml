@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="org.example.Controller"
+          prefHeight="400.0" prefWidth="600.0"
+          alignment="CENTER">
+   <children>
+      <TableView fx:id="tabelaProdaje" GridPane.columnIndex="0" GridPane.rowIndex="0">
+         <columns>
+            <TableColumn fx:id="kolonaIme" text="Ime" />
+            <TableColumn fx:id="kolonaPrezime" text="Prezime" />
+            <TableColumn fx:id="kolonaAdresa" text="Adresa" />
+            <TableColumn fx:id="kolonaBrzina" text="Brzina (mb/s)" />
+            <TableColumn fx:id="kolonaProtok" text="Protok net" />
+            <TableColumn fx:id="kolonaTUgovora" text="Trajanje ugovora" />
+         </columns>
+      </TableView>
+      <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" >
+         <Label text="Registar prodaje:" />
+         <TextField fx:id="imeID" promptText="ime" />
+         <TextField fx:id="prezimeID" promptText="prezime" />
+         <TextField fx:id="adresaID" promptText="adresa" />
+         <Label text="Odaberite brzinu interneta: " />
+         <ComboBox fx:id="brzinaComboBox">
+            <items>
+               <FXCollections fx:factory="observableArrayList">
+                  <Integer fx:value="2" />
+                  <Integer fx:value="5" />
+                  <Integer fx:value="10" />
+                  <Integer fx:value="20" />
+                  <Integer fx:value="50" />
+                  <Integer fx:value="100" />
+               </FXCollections>
+            </items>
+         </ComboBox>
+         <Label text="Odaberite protok interneta: "/>
+         <ComboBox fx:id="protokComboBox">
+            <items>
+               <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="1" />
+                  <String fx:value="5" />
+                  <String fx:value="10" />
+                  <String fx:value="100" />
+                  <String fx:value="flat" />
+               </FXCollections>
+            </items>
+         </ComboBox>
+         <Label text="Na koliko godina zelite ugovor?:" />
+         <ComboBox fx:id="trajanje_ugovoraComboBox">
+            <items>
+               <FXCollections fx:factory="observableArrayList">
+                  <Integer fx:value="1" />
+                  <Integer fx:value="2" />
+               </FXCollections>
+            </items>
+         </ComboBox>
+         <Button fx:id="potvrdiBtn" onAction="#save" text="Potvrdi" />
+         <Button fx:id="clearFormBtn" onAction="#clearForm" text="Ocisti formu"/>
+         <Button fx:id="deleteTROwBtn" onAction="#deleteRow" text="Delete table row"/>
+      </VBox>
+   </children>
+
+</GridPane>
